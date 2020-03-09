@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Todo App</title>
+    <script defer src='script.js'></script>
+    <!-- <script defer src='todo.js'></script>  -->
+</head>
+
+<body>
+    <h1 class="title">ToDo App: LocalStorage</h1>
+
+    <div class="all-tasks">
+        <h2 class="task-list-title">My List</h2>
+        <form action="" id = "newListForm" data-new-list-form>
+            <input type="text" id="newListInput" placeholder="Create a List" class="new list" data-new-list-input>
+            <button class="btn create" id="add-list">+</button>
+        </form>
+        <ul class="task-list" data-lists>
+        </ul>
+
+    </div>
+
+
+
+    <div class="todo-list" id="listDisplayContainer" data-list-display-container>
+
+        <div class="todo-header">
+            <h2 class="list-title" id="listTitleElement" data-list-title></h2>
+            <p class="task-count" id="listCountElement" data-list-count></p>
+        </div>
+
+        <div class="todo-body">
+
+            <div class="new-task-creator">
+                <form action="" id="newTaskForm" data-new-task-form>
+                    <input type="text" class="new task" id="input-item" placeholder="Add Task Item" data-new-task-input>
+                    <button class="btn create" id="add-item">+</button>
+                </form>
+            </div>
+
+            <div class="tasks" data-tasks id="tasksContainer">
+            </div>
+
+            <div class="delete-stuff">
+                <button class="btn delete" id="clear-task" data-clear-complete-tasks-button>Clear Completed
+                    Task</button>
+                <button class="btn delete" id="delete-task" data-delete-list-button>Delete List</button>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <template id="task-template">
+        <div class="task">
+            <input type="checkbox" />
+            <label>
+                <span class="custom-checkbox"></span>
+            </label>
+        </div>
+    </template>
+
+
+    <!-- <script src='app.js'></script> -->
+
+</body>
+
+</html>
