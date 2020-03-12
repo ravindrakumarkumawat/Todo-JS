@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" type="text/css">
     <title>Todo App</title>
-    <script defer src='script.js'></script>
-    <!-- <script defer src='todo.js'></script>  -->
 </head>
 
 <body>
@@ -15,7 +13,7 @@
 
     <div class="all-tasks">
         <h2 class="task-list-title">My List</h2>
-        <form action="" id = "newListForm" data-new-list-form>
+        <form action="" id="newListForm" data-new-list-form>
             <input type="text" id="newListInput" placeholder="Create a List" class="new list" data-new-list-input>
             <button class="btn create" id="add-list">+</button>
         </form>
@@ -49,12 +47,47 @@
                 <button class="btn delete" id="clear-task" data-clear-complete-tasks-button>Clear Completed
                     Task</button>
                 <button class="btn delete" id="delete-task" data-delete-list-button>Delete List</button>
+                <button class="btn back" id="back-task" data-back-list-button>Back</button>
             </div>
 
         </div>
     </div>
 
+    
+    <div class="priority" data-task-priority-container id="priorityContainer">
 
+        <div class="priority-header">
+            <h2 class="task-title" id="taskTitleElement" data-task-title></h2>
+        </div>
+
+        <div class="priority-body">
+
+            <div class="tasks" data-tasks-priority id="priority">
+
+                    Note: <br> <textarea name="" id="" cols="62" rows="10"></textarea></br>
+                
+                
+                    Due: <input type="date" name="" id=""> <br>
+                
+                    Priority: <select name="" id="">
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                
+                  
+                
+            </div>
+
+            <div class="delete-stuff-priority">
+                <button class="btn delete" id="delete-task-item" data-delete-list-button>Delete</button>
+                <button class="btn back" id="back-task-item" data-back-task-button>Back</button>
+            </div>
+
+        </div>
+    </div>
+
+<!-- 
 
     <template id="task-template">
         <div class="task">
@@ -63,11 +96,10 @@
                 <span class="custom-checkbox"></span>
             </label>
         </div>
-    </template>
-
-
-    <!-- <script src='app.js'></script> -->
+    </template> -->
 
 </body>
+<!-- <script src='script1.js'></script> -->
+<script src='script3.js'></script>
 
 </html>
