@@ -44,16 +44,16 @@
             </div>
 
             <div class="delete-stuff">
-                <button class="btn delete" id="clear-task" data-clear-complete-tasks-button>Clear Completed
+                <button class="btn" id="clear-task" data-clear-complete-tasks-button>Clear Completed
                     Task</button>
-                <button class="btn delete" id="delete-task" data-delete-list-button>Delete List</button>
-                <button class="btn back" id="back-task" data-back-list-button>Back</button>
+                <button class="btn" id="delete-task" data-delete-list-button>Delete List</button>
+                <button class="btn" id="back-task" data-back-list-button>Back</button>
             </div>
 
         </div>
     </div>
 
-    
+
     <div class="priority" data-task-priority-container id="priorityContainer">
 
         <div class="priority-header">
@@ -62,32 +62,36 @@
 
         <div class="priority-body">
 
-            <div class="tasks" data-tasks-priority id="priority">
+            <div class="tasks form" data-tasks-priority id="priority">
 
-                    Note: <br> <textarea name="" id="" cols="62" rows="10"></textarea></br>
-                
-                
-                    Due: <input type="date" name="" id=""> <br>
-                
-                    Priority: <select name="" id="">
-                        <option value="high">High</option>
-                        <option value="medium">Medium</option>
-                        <option value="low">Low</option>
-                    </select>
-                
-                  
-                
+                Note: <br> <textarea name="note" id="noteText" cols="62" rows="10"placeholder="Write something" data-note-text></textarea></br>
+
+
+                Date: <input type="date" name="date" id="date" data-date-priority> <br>
+
+                Priority: <select name="select" id="select" data-select-priority>
+                    <option value="none">None</option>
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+
+
+
             </div>
 
             <div class="delete-stuff-priority">
-                <button class="btn delete" id="delete-task-item" data-delete-list-button>Delete</button>
+                <button class="btn add" id="add-task-priority" data-add-task-priority>Add</button>
+
+                <button class="btn delete" id="delete-task-item" data-delete-task-button>Delete Task</button>
+
                 <button class="btn back" id="back-task-item" data-back-task-button>Back</button>
             </div>
 
         </div>
     </div>
 
-<!-- 
+    <!-- 
 
     <template id="task-template">
         <div class="task">
