@@ -10,21 +10,22 @@
 
 <body>
     <h1 class="title">ToDo App: LocalStorage</h1>
-
-    <div class="all-tasks">
+    <!-- List Container -->
+    <div class="all-tasks" data-list-display-container>
         <h2 class="task-list-title">My List</h2>
         <form action="" id="newListForm" data-new-list-form>
             <input type="text" id="newListInput" placeholder="Create a List" class="new list" data-new-list-input>
             <button class="btn create" id="add-list">+</button>
         </form>
         <ul class="task-list" data-lists>
+
         </ul>
 
     </div>
 
 
-
-    <div class="todo-list" id="listDisplayContainer" data-list-display-container>
+    <!-- Task Container -->
+    <div class="todo-list" id="taskDisplayContainer" data-task-display-container>
 
         <div class="todo-header">
             <h2 class="list-title" id="listTitleElement" data-list-title></h2>
@@ -54,6 +55,7 @@
     </div>
 
 
+    <!-- Priority Container -->
     <div class="priority" data-task-priority-container id="priorityContainer">
 
         <div class="priority-header">
@@ -81,7 +83,7 @@
             </div>
 
             <div class="delete-stuff-priority">
-                <button class="btn add" id="add-task-priority" data-add-task-priority>Add</button>
+                <button class="btn add" id="add-task-priority" data-add-task-priority>Update</button>
 
                 <button class="btn delete" id="delete-task-item" data-delete-task-button>Delete Task</button>
 
@@ -91,19 +93,7 @@
         </div>
     </div>
 
-    <!-- 
-
-    <template id="task-template">
-        <div class="task">
-            <input type="checkbox" />
-            <label>
-                <span class="custom-checkbox"></span>
-            </label>
-        </div>
-    </template> -->
-
 </body>
-<!-- <script src='script1.js'></script> -->
-<script src='script3.js'></script>
+<script src='script.js'></script>
 
 </html>
