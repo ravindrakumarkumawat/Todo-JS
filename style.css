@@ -220,6 +220,7 @@ li {
 .list-title {
   margin: 0 1em 0 0;
   color:#f65c65;
+  cursor: pointer;
 }
 .list-title:hover {
   opacity: 0.7;
@@ -228,7 +229,7 @@ li {
 .task-title {
   margin: 0 1em 0 0;
   color:#f65c65;
-  padding-bottom: 30px;
+  cursor: pointer;
 }
 .task-title:hover {
   opacity: 0.7;

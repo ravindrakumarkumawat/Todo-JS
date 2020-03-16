@@ -15,6 +15,29 @@ newListForm.addEventListener('submit', (e) => {
     lists.push(list)
     saveAndRender()
 })
+
+// Search List
+newListForm.addEventListener('keyup', (e) => {
+    const listName = newListInput.value
+    const regex = RegExp(listName)
+    if (!listName) renderLists()
+    const searchList = []
+    lists.forEach(list => {
+        if (regex.test(list.name)) {
+            searchList.push(list)
+        }
+    })
+    clearElement(listsContainer)
+    searchList.forEach(list => {
+        const listElement = document.createElement('li')
+        listElement.dataset.listId = list.id
+        listElement.classList.add('list-name')
+        listElement.innerText = list.name
+        if (list.id === selectedListId) listElement.classList.add('active-list')
+        listsContainer.appendChild(listElement)
+    })
+})
+
 // Selecting List 
 listsContainer.addEventListener('click', (e) => {
     if (e.target.tagName === 'LI') selectedListId = e.target.dataset.listId
@@ -43,6 +66,38 @@ newTaskForm.addEventListener('submit', (e) => {
     const selectedList = lists.find(list => list.id === selectedListId)
     selectedList.tasks.push(task)
     saveAndRender()
+})
+
+newTaskForm.addEventListener('keyup', (e)=> {
+    const taskName = newTaskInput.value
+    const regex = RegExp(taskName)
+    if(!taskName) renderTasks()
+    const searchTask = []
+    const selectedList = lists.find(list => list.id === selectedListId)
+    selectedList.tasks.find(task => {
+        if (regex.test(task.name)){
+            searchTask.push(task)
+        }
+    })
+    clearElement(tasksContainer)
+    searchTask.forEach(task => {
+        const taskElement = document.createElement('div')
+        if (task.priorityValue === "high") taskElement.classList.add('red')
+        if (task.priorityValue === "medium") taskElement.classList.add('yellow')
+        if (task.priorityValue === "low") taskElement.classList.add('green')
+        const checkbox = document.createElement('input')
+        checkbox.setAttribute('type', 'checkbox')
+        checkbox.id = task.id
+        checkbox.checked = task.complete
+        const p = document.createElement('p')
+        p.style.display = 'inline'
+        p.dataset.paraId = task.id
+        p.innerText = task.name
+        if (task.id === selectedParaId) p.classList.add('active-task')
+        taskElement.appendChild(checkbox)
+        taskElement.appendChild(p)
+        tasksContainer.appendChild(taskElement) 
+    })
 })
 
 function createTask(name) {
@@ -137,6 +192,27 @@ const taskDisplayContainer = document.querySelector('[data-task-display-containe
 const taskPriorityContainer = document.querySelector('[data-task-priority-container]')
 const listTitleElement = document.querySelector('[data-list-title]')
 
+// Update list name
+const editList = document.querySelector('[data-edit-list]')
+editList.style.display = 'none'
+editList.style.width = "70%"
+listTitleElement.addEventListener('click', (e) => {
+    const selectedList = lists.find(list => list.id === selectedListId)
+    editList.style.display = ''
+    const updatedList = document.querySelector('[data-updated-list-name]')
+    const updateList = document.querySelector('[data-edit-list]')
+    updateList.addEventListener('click', (e) => {
+        e.preventDefault()
+        const updateListName = updatedList.value
+        if (!updateListName) return
+        selectedList.name = updateListName
+        updatedList.value = null
+        editList.style.display = 'none'
+        saveAndRender()
+    })
+})
+
+
 function render() {
     clearElement(listsContainer)
     renderLists()
@@ -228,6 +304,27 @@ const noteText = document.querySelector('[data-note-text]')
 const datePriority = document.querySelector('[data-date-priority]')
 const selectPriority = document.querySelector('[data-select-priority]')
 
+// Updated Task
+const editTask = document.querySelector('[data-edit-task]')
+editTask.style.display = 'none'
+editTask.style.width = "70%"
+taskTitleElement.addEventListener('click', (e) => {
+    const selectedList = lists.find(list => list.id === selectedListId)
+    const paraTask = selectedList.tasks.find(list => list.id === selectedParaId)
+    editTask.style.display = ''
+    const updatedTask = document.querySelector('[data-updated-task-name]')
+    const updateTask = document.querySelector('[data-update-task]')
+    updateTask.addEventListener('click', (e) => {
+        e.preventDefault()
+        const updateTaskName = updatedTask.value
+        if (!updateTaskName) return
+        paraTask.name = updateTaskName
+        updatedTask.value = null
+        editTask.style.display = 'none'
+        saveAndRender()
+    })
+
+})
 
 function renderPriority() {
     const selectedList = lists.find(list => list.id === selectedListId)
