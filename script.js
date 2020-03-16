@@ -80,24 +80,7 @@ newTaskForm.addEventListener('keyup', (e)=> {
         }
     })
     clearElement(tasksContainer)
-    searchTask.forEach(task => {
-        const taskElement = document.createElement('div')
-        if (task.priorityValue === "high") taskElement.classList.add('red')
-        if (task.priorityValue === "medium") taskElement.classList.add('yellow')
-        if (task.priorityValue === "low") taskElement.classList.add('green')
-        const checkbox = document.createElement('input')
-        checkbox.setAttribute('type', 'checkbox')
-        checkbox.id = task.id
-        checkbox.checked = task.complete
-        const p = document.createElement('p')
-        p.style.display = 'inline'
-        p.dataset.paraId = task.id
-        p.innerText = task.name
-        if (task.id === selectedParaId) p.classList.add('active-task')
-        taskElement.appendChild(checkbox)
-        taskElement.appendChild(p)
-        tasksContainer.appendChild(taskElement) 
-    })
+    searchTask.forEach(task => addTask(task))
 })
 
 function createTask(name) {
@@ -247,8 +230,11 @@ function renderLists() {
 function renderTasks() {
     clearElement(tasksContainer)
     const selectedList = priorityFilter()
-    selectedList.tasks.forEach(task => {
-        const taskElement = document.createElement('div')
+    selectedList.tasks.forEach(task => addTask(task))
+}
+
+function addTask(task) {
+    const taskElement = document.createElement('div')
         if (task.priorityValue === "high") taskElement.classList.add('red')
         if (task.priorityValue === "medium") taskElement.classList.add('yellow')
         if (task.priorityValue === "low") taskElement.classList.add('green')
@@ -264,7 +250,6 @@ function renderTasks() {
         taskElement.appendChild(checkbox)
         taskElement.appendChild(p)
         tasksContainer.appendChild(taskElement)
-    })
 }
 
 const listCountElement = document.querySelector('[data-list-count]')
