@@ -9,7 +9,7 @@ This is clone of the ubuntu Todo App. Implemented All the functionality from scr
 
 ##### Functionality
 1. Task Lists
-   - Searchin A List
+   - Searching A List
    - Showing All the lists
    - Add A List
    - Update A List
